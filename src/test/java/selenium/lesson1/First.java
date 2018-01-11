@@ -1,3 +1,5 @@
+package selenium.lesson1;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +24,7 @@ public class First {
         js.executeScript("alert('1')");
 //        js.executeAsyncScript("alert('2')");
         driver.getWindowHandles();
-//       driver.close();
+        driver.close();
     }
 
     @Test
