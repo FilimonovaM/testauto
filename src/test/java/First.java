@@ -8,7 +8,7 @@ import static java.lang.System.setProperty;
 
 public class First {
 
-    @Test//(dependsOnMethods = "test2")
+    @Test//(dependsOnMethods = "test2")h
     public void simpleTest1() {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();//TODO: загуглить про driver.timeouts()
