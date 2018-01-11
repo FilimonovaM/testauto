@@ -1,4 +1,7 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
@@ -12,16 +15,14 @@ public class First {
     public void simpleTest1() {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();//TODO: загуглить про driver.timeouts()
-//        driver.manage().timeouts().pageLoadTimeout(100, TimeUnit.MILLISECONDS);
         driver.navigate().to("https://www.epam.com");
-        //       JavascriptExecutor js = (JavascriptExecutor) driver;
-        //     js.executeScript("jjj");
-        //   js.executeAsyncScript("alert('fjfjsksjs')");
-//        driver.getWindowHandles();
-//        WebElement element = driver.findElement(By.id("button__content button__content--desktop"));
-        //дома покликать всякое
-
-        driver.close();
+        WebElement element = driver.findElement(By.cssSelector("button.hamburger-menu__button"));
+        element.click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("alert('1')");
+//        js.executeAsyncScript("alert('2')");
+        driver.getWindowHandles();
+//       driver.close();
     }
 
     @Test
