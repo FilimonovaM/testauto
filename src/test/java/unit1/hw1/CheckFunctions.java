@@ -22,6 +22,12 @@ public class CheckFunctions {
         driver.navigate().to("https://jdi-framework.github.io/tests/index.htm");
     }
 
+    //Close Browser
+    @AfterMethod(alwaysRun = true)
+    public void closeResources() {
+        driver.close();
+    }
+
     //Create a new test in a new Java class, specify test name in accordance with checking functionality
     @Test
     public void checkPageFunctionality() {
@@ -74,11 +80,5 @@ public class CheckFunctions {
                 "QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE " +
                 "IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
         Assert.assertTrue(textElement.isDisplayed());
-    }
-
-    //Close Browser
-    @AfterMethod(alwaysRun = true)
-    public void closeResources() {
-        driver.close();
     }
 }
