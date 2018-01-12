@@ -77,7 +77,7 @@ public class CheckFunctions {
     }
 
     //Close Browser
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void closeResources() {
         driver.close();
     }
