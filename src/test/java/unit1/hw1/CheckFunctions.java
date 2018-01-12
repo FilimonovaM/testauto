@@ -37,10 +37,10 @@ public class CheckFunctions {
         logInForm.sendKeys("1234");
         logInForm = driver.findElement(By.xpath("/html/body/div/header/div/nav/ul[2]/li/div/form/button"));
         logInForm.click();
-        logInForm = driver
-                .findElement(By.xpath("/html/body/div/header/div/nav/ul[2]/li/a/div/span"));
 
         //Assert User name in the left-top side of screen that user is logged
+        logInForm = driver
+                .findElement(By.xpath("/html/body/div/header/div/nav/ul[2]/li/a/div/span"));
         Assert.assertTrue(logInForm.isDisplayed());
         Assert.assertEquals(logInForm.getText(), "PITER CHAILOVSKII");
 
