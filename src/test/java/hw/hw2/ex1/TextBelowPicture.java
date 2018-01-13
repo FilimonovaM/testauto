@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class TextUnderItemTest {
+public class TextBelowPicture {
     WebDriver driver;
     List<WebElement> texts;
     String[] expected = {
@@ -55,7 +55,7 @@ public class TextUnderItemTest {
     }
 
 
-    @Test(dataProvider = "dp", invocationCount = 2, threadPoolSize = 3)
+    @Test(invocationCount = 2, threadPoolSize = 3, dataProvider = "dp")
     public void dpTest(String actualValue, String expectedValue) {
         Assert.assertEquals(actualValue, expectedValue);
     }
