@@ -13,7 +13,7 @@ public class First {
     WebDriver driver;
 
     //Open test site by URL
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void prepareBrowser() {
         driver = new ChromeDriver();
     }
@@ -24,7 +24,7 @@ public class First {
         driver.close();
     }
 
-    @Test//(dependsOnMethods = "test2")h
+    @Test(groups = "smoke")//(dependsOnMethods = "test2")h
     public void simpleTest1() {
         driver.manage().window().maximize();//TODO: загуглить про driver.timeouts()
         driver.navigate().to("https://www.epam.com");

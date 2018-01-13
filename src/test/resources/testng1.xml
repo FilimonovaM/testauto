@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Smoke" verbose="1" >
+    <test name="Smoke test 1"   >
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="selenium.lesson1"/>
+        </packages>
+        <classes>
+            <class name="selenium.lesson1.First"/>
+        </classes>
+    </test>
+</suite>
