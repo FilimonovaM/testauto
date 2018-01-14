@@ -14,7 +14,7 @@ import java.util.List;
 public class CheckFunctions {
     WebDriver driver;
 
-    //Open test site by URL
+    //1 Open test site by URL
     @BeforeMethod
     public void prepareBrowser() {
         driver = new ChromeDriver();
@@ -22,19 +22,19 @@ public class CheckFunctions {
         driver.navigate().to("https://jdi-framework.github.io/tests/index.htm");
     }
 
-    //Close Browser
+    //10 Close Browser
     @AfterMethod(alwaysRun = true)
     public void closeResources() {
         driver.close();
     }
 
-    //Create a new test in a new Java class, specify test name in accordance with checking functionality
+    //2 Create a new test in a new Java class, specify test name in accordance with checking functionality
     @Test
     public void checkPageFunctionality() {
-        //Assert Browser title
+        //3 Assert Browser title
         Assert.assertEquals(driver.getTitle(), "Index Page");
 
-        //Perform login
+        //4 Perform login
         WebElement logInForm = driver.findElement(By.xpath("/html/body/div/header/div/nav/ul[2]/li"));
         logInForm.click();
         logInForm = driver.findElement(By.id("Login"));
@@ -44,21 +44,21 @@ public class CheckFunctions {
         logInForm = driver.findElement(By.xpath("/html/body/div/header/div/nav/ul[2]/li/div/form/button"));
         logInForm.click();
 
-        //Assert User name in the left-top side of screen that user is logged
+        //5 Assert User name in the left-top side of screen that user is logged
         logInForm = driver
                 .findElement(By.xpath("/html/body/div/header/div/nav/ul[2]/li/a/div/span"));
         Assert.assertTrue(logInForm.isDisplayed());
         Assert.assertEquals(logInForm.getText(), "PITER CHAILOVSKII");
 
-        //Assert Browser title
+        //6 Assert Browser title
         Assert.assertEquals(driver.getTitle(), "Index Page");
 
-        //Assert that there are 4 images on the Home Page and they are displayed
+        //7 Assert that there are 4 images on the Home Page and they are displayed
         List<WebElement> images = driver.findElements(By.className("benefit-icon"));
         Assert.assertEquals(images.size(), 4);
         images.forEach(list -> Assert.assertTrue(list.isDisplayed()));
 
-        //Assert that there are 4 texts on the Home Page and check them by getting texts
+        //8 Assert that there are 4 texts on the Home Page and check them by getting texts
         List<WebElement> texts = driver.findElements(By.className("benefit-txt"));
         texts.forEach((list -> Assert.assertTrue(list.isDisplayed())));
         Assert.assertEquals(texts.size(), 4);
@@ -70,7 +70,7 @@ public class CheckFunctions {
             Assert.assertEquals(texts.get(i).getText(), messages[i]);
         }
 
-        //Assert that there are the main header and the text below it on the Home Page
+        //9 Assert that there are the main header and the text below it on the Home Page
         WebElement textElement = driver.findElement(By.cssSelector("h3.main-title.text-center"));
         Assert.assertEquals(textElement.getText(), "EPAM FRAMEWORK WISHES…");
         Assert.assertTrue(textElement.isDisplayed());
