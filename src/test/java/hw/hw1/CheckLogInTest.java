@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class CheckFunctionsTest {
+public class CheckLogInTest {
     WebDriver driver;
 
     //1 Open test site by URL
