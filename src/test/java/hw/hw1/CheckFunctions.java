@@ -48,7 +48,7 @@ public class CheckFunctions {
         logInForm = driver
                 .findElement(By.xpath("/html/body/div/header/div/nav/ul[2]/li/a/div/span"));
         Assert.assertTrue(logInForm.isDisplayed());
-        Assert.assertEquals(logInForm.getText(), "PITER CHAILOVSKII");
+        Assert.assertTrue(logInForm.getText().equalsIgnoreCase("PITER CHAILOVSKII"));
 
         //6 Assert Browser title
         Assert.assertEquals(driver.getTitle(), "Index Page");
