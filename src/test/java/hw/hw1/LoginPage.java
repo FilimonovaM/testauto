@@ -11,15 +11,13 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class CheckLogInTest {
-    WebDriver driver;
+public class LoginPage {
+    private WebDriver driver;
 
-    //1 Open test site by URL
     @BeforeMethod
     public void prepareBrowser() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.navigate().to("https://jdi-framework.github.io/tests/index.htm");
     }
 
     //10 Close Browser
@@ -28,9 +26,13 @@ public class CheckLogInTest {
         driver.close();
     }
 
-    //2 Create a new test in a new Java class, specify test name in accordance with checking functionality
+    //1 Create a new test in a new Java class, specify test name in accordance with checking functionality
     @Test
     public void checkPageFunctionality() {
+
+        //2 Open test site by URL
+        driver.navigate().to("https://jdi-framework.github.io/tests/index.htm");
+
         //3 Assert Browser title
         Assert.assertEquals(driver.getTitle(), "Index Page");
 

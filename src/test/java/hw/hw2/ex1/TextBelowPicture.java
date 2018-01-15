@@ -13,9 +13,9 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class TextBelowPicture {
-    WebDriver driver;
-    List<WebElement> texts;
-    String[] expected = {
+    private WebDriver driver;
+    private List<WebElement> texts;
+    private String[] expected = {
             "To include good practices\n" +
                     "and ideas from successful\n" +
                     "EPAM projec",

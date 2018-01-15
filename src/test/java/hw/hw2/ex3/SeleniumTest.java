@@ -12,7 +12,7 @@ import java.util.List;
 import static java.lang.System.setProperty;
 
 public class SeleniumTest {
-    WebDriver driver;
+    private WebDriver driver;
 
     @BeforeSuite
     public void setMillis() {
