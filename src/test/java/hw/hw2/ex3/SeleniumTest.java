@@ -51,7 +51,6 @@ public class SeleniumTest {
     public void checkPageFunctionality() {
         driver.manage().window().maximize();
         Assert.assertEquals(driver.getTitle(), "Index Page");
-
         WebElement logInForm = driver.findElement(By.xpath("/html/body/div/header/div/nav/ul[2]/li"));
         logInForm.click();
         logInForm = driver.findElement(By.id("Login"));
