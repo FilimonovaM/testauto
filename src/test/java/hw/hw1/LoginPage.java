@@ -60,12 +60,12 @@ public class LoginPage {
         List<WebElement> texts = driver.findElements(By.className("benefit-txt"));
         texts.forEach((list -> Assert.assertTrue(list.isDisplayed())));
         Assert.assertEquals(texts.size(), 4);
-        String[] messages = {"To include good practices\nand ideas from successful\nEPAM projec",
-                "To be flexible and\ncustomizable",
+        String[] messages = {"To include good practicesand ideas from successfulEPAM projec",
+                "To be flexible andcustomizable",
                 "To be multiplatform",
-                "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…"};
+                "Already have good base(about 20 internal andsome external projects),wish to get more…"};
         for (int i = 0; i < messages.length; i++) {
-            Assert.assertEquals(texts.get(i).getText(), messages[i]);
+            Assert.assertEquals(texts.get(i).getText().replaceAll("\n", ""), messages[i]);
         }
 
         //9 Assert that there are the main header and the text below it on the Home Page
