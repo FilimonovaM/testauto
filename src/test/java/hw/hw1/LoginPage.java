@@ -37,17 +37,13 @@ public class LoginPage {
         Assert.assertEquals(driver.getTitle(), "Index Page");
 
         //4 Perform login
-        WebElement logInForm = driver.findElement(By.xpath("/html/body/div/header/div/nav/ul[2]/li"));
-        logInForm.click();
-        logInForm = driver.findElement(By.id("Login"));
-        logInForm.sendKeys("epam");
-        logInForm = driver.findElement(By.id("Password"));
-        logInForm.sendKeys("1234");
-        logInForm = driver.findElement(By.xpath("/html/body/div/header/div/nav/ul[2]/li/div/form/button"));
-        logInForm.click();
+        driver.findElement(By.xpath("/html/body/div/header/div/nav/ul[2]/li")).click();
+        driver.findElement(By.id("Login")).sendKeys("epam");
+       driver.findElement(By.id("Password")).sendKeys("1234");
+        driver.findElement(By.xpath("/html/body/div/header/div/nav/ul[2]/li/div/form/button")).click();
 
         //5 Assert User name in the left-top side of screen that user is logged
-        logInForm = driver
+        WebElement logInForm = driver
                 .findElement(By.xpath("/html/body/div/header/div/nav/ul[2]/li/a/div/span"));
         Assert.assertTrue(logInForm.isDisplayed());
         Assert.assertTrue(logInForm.getText().equalsIgnoreCase("PITER CHAILOVSKII"));
