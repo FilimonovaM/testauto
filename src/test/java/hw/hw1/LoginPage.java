@@ -37,14 +37,14 @@ public class LoginPage {
         Assert.assertEquals(driver.getTitle(), "Index Page");
 
         //4 Perform login
-        driver.findElement(By.xpath("/html/body/div/header/div/nav/ul[2]/li")).click();
-        driver.findElement(By.id("Login")).sendKeys("epam");
-       driver.findElement(By.id("Password")).sendKeys("1234");
-        driver.findElement(By.xpath("/html/body/div/header/div/nav/ul[2]/li/div/form/button")).click();
+        driver.findElement(By.cssSelector(".uui-profile-menu .dropdown-toggle")).click();
+        driver.findElement(By.cssSelector("#Login")).sendKeys("epam");
+        driver.findElement(By.cssSelector("#Password")).sendKeys("1234");
+        driver.findElement(By.cssSelector(".btn-login")).click();
 
         //5 Assert User name in the left-top side of screen that user is logged
         WebElement logInForm = driver
-                .findElement(By.xpath("/html/body/div/header/div/nav/ul[2]/li/a/div/span"));
+                .findElement(By.cssSelector(".profile-photo>span"));
         Assert.assertTrue(logInForm.isDisplayed());
         Assert.assertTrue(logInForm.getText().equalsIgnoreCase("PITER CHAILOVSKII"));
 
@@ -52,12 +52,12 @@ public class LoginPage {
         Assert.assertEquals(driver.getTitle(), "Index Page");
 
         //7 Assert that there are 4 images on the Home Page and they are displayed
-        List<WebElement> images = driver.findElements(By.className("benefit-icon"));
+        List<WebElement> images = driver.findElements(By.cssSelector(".benefit-icon"));
         Assert.assertEquals(images.size(), 4);
         images.forEach(list -> Assert.assertTrue(list.isDisplayed()));
 
         //8 Assert that there are 4 texts on the Home Page and check them by getting texts
-        List<WebElement> texts = driver.findElements(By.className("benefit-txt"));
+        List<WebElement> texts = driver.findElements(By.cssSelector(".benefit-txt"));
         texts.forEach((list -> Assert.assertTrue(list.isDisplayed())));
         Assert.assertEquals(texts.size(), 4);
         String[] messages = {"To include good practicesand ideas from successfulEPAM projec",
@@ -69,10 +69,10 @@ public class LoginPage {
         }
 
         //9 Assert that there are the main header and the text below it on the Home Page
-        WebElement textElement = driver.findElement(By.cssSelector("h3.main-title.text-center"));
+        WebElement textElement = driver.findElement(By.cssSelector(".main-title.text-center"));
         Assert.assertEquals(textElement.getText(), "EPAM FRAMEWORK WISHES…");
         Assert.assertTrue(textElement.isDisplayed());
-        textElement = driver.findElement(By.cssSelector("p.main-txt.text-center"));
+        textElement = driver.findElement(By.cssSelector(".main-txt.text-center"));
         Assert.assertEquals(textElement.getText(), "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING " +
                 "ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, " +
                 "QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE " +

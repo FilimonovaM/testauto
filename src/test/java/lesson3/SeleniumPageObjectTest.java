@@ -1,12 +1,12 @@
 package lesson3;
 
+import hw.hw3.pageObjects.IndexPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageObjects.IndexPage;
 
 public class SeleniumPageObjectTest {
     private WebDriver driver;

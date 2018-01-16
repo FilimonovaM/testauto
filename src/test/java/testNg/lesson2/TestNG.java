@@ -1,6 +1,6 @@
 package testNg.lesson2;
 
-import base.TestBase;
+import training.base.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
