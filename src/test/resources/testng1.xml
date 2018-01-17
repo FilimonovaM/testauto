@@ -11,7 +11,7 @@
             <package name="selenium.lesson1"/>
         </packages>
         <classes>
-            <class name="selenium.lesson1.First"/>
+            <class name="selenium.lesson1.SeleniumFirstTest"/>
         </classes>
     </test>
 </suite>

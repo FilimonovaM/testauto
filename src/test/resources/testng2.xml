@@ -5,7 +5,7 @@
         <classes>
             <class name="testNg.lesson2.DPTest"/>
             <class name="testNg.lesson2.Second"/>
-            <class name="selenium.lesson1.First"/>
+            <class name="selenium.lesson1.SeleniumFirstTest"/>
         </classes>
     </test>
 </suite>

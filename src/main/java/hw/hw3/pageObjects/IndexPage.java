@@ -6,7 +6,13 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
+import static enumPackage.IndexPageTextsEnum.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 public class IndexPage {
+    private WebDriver driver;
+
     @FindBy(css = ".uui-profile-menu .dropdown-toggle")
     private WebElement loginFromButton;
 
@@ -41,10 +47,6 @@ public class IndexPage {
         submitButton.click();
     }
 
-    public void openURL(String url, WebDriver driver) {
-        driver.navigate().to(url);
-    }
-
     public WebElement getUserName() {
         return userName;
     }
@@ -63,5 +65,41 @@ public class IndexPage {
 
     public WebElement getTextBelowHeadline() {
         return textBelowHeadline;
+    }
+
+    public void openURL(String url, WebDriver driver) {
+        driver.navigate().to(url);
+        this.driver = driver;
+    }
+
+    public void checkTitle() {
+        assertEquals(driver.getTitle(), TITLE.text);
+    }
+
+    public void checkUser() {
+        assertTrue(getUserName().isDisplayed());
+        assertTrue(getUserName().getText().equalsIgnoreCase(USER_NAME.text));
+    }
+
+    public void checkImages() {
+        assertEquals(getImages().size(), 4);
+        getImages().forEach(list -> assertTrue(list.isDisplayed()));
+    }
+
+    public void checkTextsUnderImages() {
+        getTexts().forEach((list -> assertTrue(list.isDisplayed())));
+        assertEquals(getTexts().size(), 4);
+        for (int i = 0; i < getTexts().size(); i++) {
+            assertEquals(getTexts().get(i).getText().replaceAll("\n", ""),
+                    getExpectedText().get(i));
+        }
+    }
+
+    public void checkPageContent() {
+        assertEquals(getHeadline().getText(), TEXT_HEADER.text);
+        assertTrue(getHeadline().isDisplayed());
+        assertEquals(getTextBelowHeadline().getText(),
+                TEXT_CONTENT.text);
+        assertTrue(getTextBelowHeadline().isDisplayed());
     }
 }
