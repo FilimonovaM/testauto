@@ -4,13 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.List;
+
+import static org.testng.Assert.assertEquals;
 
 public class TextBelowPicture {
     private WebDriver driver;
@@ -57,6 +58,6 @@ public class TextBelowPicture {
 
     @Test(dataProvider = "dp")
     public void dpTest(String actualValue, String expectedValue) {
-        Assert.assertEquals(actualValue, expectedValue);
+        assertEquals(actualValue, expectedValue);
     }
 }
