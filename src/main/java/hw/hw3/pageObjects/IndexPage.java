@@ -1,5 +1,6 @@
 package hw.hw3.pageObjects;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -38,6 +39,10 @@ public class IndexPage {
         loginInput.sendKeys(name);
         passwordInput.sendKeys(password);
         submitButton.click();
+    }
+
+    public void openURL(String url, WebDriver driver) {
+        driver.navigate().to(url);
     }
 
     public WebElement getUserName() {
