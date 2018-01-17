@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 public class BothTypesOfTests {
+
     @Test(groups = {"smoke", "regression"})
     public void test1() {
         assertEquals(1, 1);
