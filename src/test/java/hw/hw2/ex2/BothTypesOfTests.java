@@ -10,17 +10,17 @@ public class BothTypesOfTests {
         assertEquals(1, 1);
     }
 
-    @Test(groups = {"regression","smoke"})
+    @Test(groups = {"regression", "smoke"})
     public void test2() {
         assertEquals(2, 2);
     }
 
-    @Test(groups = {"regression","smoke"})
+    @Test(groups = {"regression", "smoke"})
     public void test3() {
         assertEquals(3, 3);
     }
 
-    @Test(groups = {"regression","smoke"})
+    @Test(groups = {"regression", "smoke"})
     public void test4() {
         assertEquals(4, 4);
     }

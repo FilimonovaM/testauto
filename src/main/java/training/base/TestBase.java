@@ -9,11 +9,12 @@ public abstract class TestBase {
     public static WebDriver driver;
 
     @BeforeSuite
-    public void setUp(){
+    public void setUp() {
         driver = new ChromeDriver();
     }
+
     @AfterSuite
-    public void tearDown(){
+    public void tearDown() {
         driver.close();
     }
 }

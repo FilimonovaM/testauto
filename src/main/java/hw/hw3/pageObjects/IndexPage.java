@@ -33,22 +33,22 @@ public class IndexPage {
     @FindBy(css = ".main-txt.text-center")
     private WebElement textBelowHeadline;
 
-    public void login(String name, String password){
+    public void login(String name, String password) {
         loginFromButton.click();
         loginInput.sendKeys(name);
         passwordInput.sendKeys(password);
         submitButton.click();
     }
 
-    public WebElement getUserName(){
+    public WebElement getUserName() {
         return userName;
     }
 
-    public List<WebElement> getImages(){
+    public List<WebElement> getImages() {
         return images;
     }
 
-    public List<WebElement> getTexts(){
+    public List<WebElement> getTexts() {
         return texts;
     }
 
@@ -56,7 +56,7 @@ public class IndexPage {
         return headline;
     }
 
-    public WebElement getTextBelowHeadline(){
+    public WebElement getTextBelowHeadline() {
         return textBelowHeadline;
     }
 }

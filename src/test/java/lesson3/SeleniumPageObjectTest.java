@@ -18,6 +18,7 @@ public class SeleniumPageObjectTest {
         driver.manage().window().maximize();
         indexPage = PageFactory.initElements(driver, IndexPage.class);
     }
+
     //Close Browser
     @AfterMethod(alwaysRun = true)
     public void closeResources() {

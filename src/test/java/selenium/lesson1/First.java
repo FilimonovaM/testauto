@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class First {
-   private WebDriver driver;
+    private WebDriver driver;
 
     //Open test site by URL
     @BeforeMethod(alwaysRun = true)
