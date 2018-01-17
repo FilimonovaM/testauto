@@ -55,7 +55,6 @@ public class TextBelowPicture {
         return obj;
     }
 
-
     @Test(dataProvider = "dp")
     public void dpTest(String actualValue, String expectedValue) {
         assertEquals(actualValue, expectedValue);
