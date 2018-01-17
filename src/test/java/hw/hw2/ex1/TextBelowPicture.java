@@ -55,7 +55,7 @@ public class TextBelowPicture {
     }
 
 
-    @Test(invocationCount = 2, threadPoolSize = 3, dataProvider = "dp")
+    @Test(dataProvider = "dp")
     public void dpTest(String actualValue, String expectedValue) {
         Assert.assertEquals(actualValue, expectedValue);
     }
