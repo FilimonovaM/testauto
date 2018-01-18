@@ -60,8 +60,8 @@ public class LoginPage {
 
         //8 Assert that there are 4 texts on the Home Page and check them by getting texts
         List<WebElement> texts = driver.findElements(By.cssSelector(".benefit-txt"));
-        texts.forEach((list -> assertTrue(list.isDisplayed())));
         assertEquals(texts.size(), 4);
+        texts.forEach((list -> assertTrue(list.isDisplayed())));
         String[] messages = {"To include good practicesand ideas from successfulEPAM projec",
                 "To be flexible andcustomizable",
                 "To be multiplatform",
