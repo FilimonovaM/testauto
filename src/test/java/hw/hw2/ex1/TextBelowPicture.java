@@ -13,8 +13,9 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
-public class TextBelowPicture {//
+public class TextBelowPicture {
     private WebDriver driver;
+    private List<WebElement> texts;
     private String[] expected = {
             "To include good practices\n" +
                     "and ideas from successful\n" +
@@ -44,7 +45,7 @@ public class TextBelowPicture {//
 
     @DataProvider(parallel = true)
     public Object[][] dp() {
-        List<WebElement> texts = driver.findElements(By.className("benefit-txt"));
+        texts = driver.findElements(By.className("benefit-txt"));
         Object[][] obj = new Object[texts.size()][2];
         for (int i = 0; i < texts.size(); i++) {
             for (int j = 0; j < 2; j++) {
