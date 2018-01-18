@@ -13,7 +13,7 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
-public class TextBelowPicture {
+public class TextBelowPicture {//
     private WebDriver driver;
     private String[] expected = {
             "To include good practices\n" +

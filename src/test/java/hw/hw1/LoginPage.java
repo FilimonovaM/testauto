@@ -14,7 +14,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class LoginPage {
-    private WebDriver driver;
+    private WebDriver driver;//
 
     @BeforeMethod
     public void prepareBrowser() {
