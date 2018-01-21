@@ -14,7 +14,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static enums.IndexPageEnum.*;
 
 // 1   Create a new test in a new Java class, specify test name accordingly checking functionality
-public class TestPage extends TestBase {
+public class TestDifferentElementsPage extends TestBase {
     private IndexPage indexPage;
     private DifferentElementPage differentElementPage;
 
