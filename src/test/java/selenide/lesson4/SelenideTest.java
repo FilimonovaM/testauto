@@ -8,15 +8,13 @@ import org.testng.annotations.Test;
 import training.base.BaseSelenide;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.close;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class SelenideTest extends BaseSelenide{
+public class SelenideTest extends BaseSelenide {
 
     @AfterMethod
-    public void closeResources(){
+    public void closeResources() {
         close();
     }
 
@@ -45,6 +43,7 @@ public class SelenideTest extends BaseSelenide{
         $(".hamburger-menu__button").should(Condition.visible);
         menuButton.should(text("MENU"));
     }
+
     @Test()//(dependsOnMethods = "test2")h
 
     public void simpleTest3() {
