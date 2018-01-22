@@ -17,10 +17,10 @@ public class Dates {
         if(right == null){
             right = 0;
         }
-        actions().dragAndDropBy(nodes.get(0), -300, 0).build().perform();
-        actions().dragAndDropBy(nodes.get(1), -300, 0).build().perform();
-        actions().dragAndDropBy(nodes.get(0), (int) (274.167 / 100 * right - 1.8), 0).build().perform();
-        actions().dragAndDropBy(nodes.get(1), (int) (274.167 / 100 * left - 1.8), 0).build().perform();
+        actions().dragAndDropBy(nodes.get(0), (int)(-nodes.get(0).getLocation().getX()*2.8), 0).build().perform();
+        actions().dragAndDropBy(nodes.get(1), (int)(-nodes.get(1).getLocation().getX()*2.8), 0).build().perform();
+        actions().dragAndDropBy(nodes.get(0), (int) (2.8 * right - 2.8), 0).build().perform();
+        actions().dragAndDropBy(nodes.get(1), (int) (2.8  * left - 2.8), 0).build().perform();
         nodes.get(0).shouldHave(exactText(String.valueOf(left)));
         nodes.get(1).shouldHave(exactText(String.valueOf(right)));
     }
