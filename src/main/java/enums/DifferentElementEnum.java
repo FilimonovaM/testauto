@@ -1,6 +1,6 @@
 package enums;
 
-public enum DifferentElementsPageEnum {
+public enum DifferentElementEnum {
     URL_DIFFERENT_ELEMENTS_PAGE("https://jdi-framework.github.io/tests/page8.htm"),
     INPUT("input"),
     WATER("water"),
@@ -13,7 +13,7 @@ public enum DifferentElementsPageEnum {
 
     public String text;
 
-    DifferentElementsPageEnum(String text) {
+    DifferentElementEnum(String text) {
         this.text = text;
     }
 }

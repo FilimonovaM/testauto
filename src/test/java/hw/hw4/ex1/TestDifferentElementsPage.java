@@ -1,9 +1,9 @@
 package hw.hw4.ex1;
 
 import com.codeborne.selenide.Selenide;
-import enums.DifferentElementsPageEnum;
+import enums.DifferentElementEnum;
 import hw.hw4.base.TestBase;
-import hw.hw4.pageObjects.DifferentElementPage;
+import hw.hw4.pageObjects.DifferentElement;
 import hw.hw4.pageObjects.IndexPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -16,12 +16,12 @@ import static enums.IndexPageEnum.*;
 // 1   Create a new test in a new Java class, specify test name accordingly checking functionality
 public class TestDifferentElementsPage extends TestBase {
     private IndexPage indexPage;
-    private DifferentElementPage differentElementPage;
+    private DifferentElement differentElement;
 
     @BeforeMethod
     public void setPage() {
         indexPage = Selenide.page(IndexPage.class);
-        differentElementPage = Selenide.page(DifferentElementPage.class);
+        differentElement = Selenide.page(DifferentElement.class);
         indexPage.setDriver(getWebDriver());
     }
 
@@ -54,28 +54,28 @@ public class TestDifferentElementsPage extends TestBase {
         indexPage.checkHeaderServiceSubmenuCategories();
 
         //8 Open through the header menu Service -> Different Elements Page
-        indexPage.clickDifferentElements();
+        indexPage.clickDifferentElement();
 
         //Check interface on Service page, it contains all needed elements.
         // 4 - checkboxes, 4 radios, dropdown, 2 - buttons, left section, right section.
-        differentElementPage.checkElements();
+        differentElement.checkElements();
 
         //9 Select and assert checkboxes	Water, Wind	Elements are checked
-        differentElementPage.checkSelectionOfElements();
+        differentElement.checkSelectionOfElements();
 
         //10 Select radio	Selen	Element is checked
-        differentElementPage.checkSelectionOfRadio();
+        differentElement.checkSelectionOfRadio();
 
         //11 Select in dropdown	Yellow	Element is selected
-        differentElementPage.checkColorSelection();
+        differentElement.checkColorSelection();
 
         //12 Check in logs section selected values and status (true|false)	Water, Wind, Selen, Yellow	Rows exists
-        differentElementPage.checkLogs(0, 4, DifferentElementsPageEnum.LOG_1.text);
+        differentElement.checkLogs(0, 4, DifferentElementEnum.LOG_1.text);
 
         //13 Unselect and assert checkboxes	Water, Wind	Elements are unchecked
-        differentElementPage.checkUnselection();
+        differentElement.checkUnselection();
 
         //Check in logs section unselected values and status (true|false)	Water, Wind	Rows exists
-        differentElementPage.checkLogs(4, 6, DifferentElementsPageEnum.LOG_2.text);
+        differentElement.checkLogs(4, 6, DifferentElementEnum.LOG_2.text);
     }
 }

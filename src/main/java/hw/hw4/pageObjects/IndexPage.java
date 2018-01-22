@@ -3,7 +3,8 @@ package hw.hw4.pageObjects;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import enums.DifferentElementsPageEnum;
+import enums.DatesEnum;
+import enums.DifferentElementEnum;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -32,6 +33,7 @@ public class IndexPage {
     private SelenideElement serviceHeaderSubcategoryButton = $(".dropdown-toggle");
     private List<SelenideElement> serviceHeaderMenuCategories = $$("li.dropdown.open a");
     private SelenideElement differentElementsButton = $("[href='page8.htm']");
+    private SelenideElement dataButton = $("[href='page4.htm']");
 
     public void setDriver(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -106,8 +108,14 @@ public class IndexPage {
         Assert.assertTrue(serviceList.containsAll(getExpectedServiceMenuCategories()));
     }
 
-    public void clickDifferentElements() {
+    public void clickDifferentElement() {
         differentElementsButton.click();
-        Assert.assertEquals(webDriver.getCurrentUrl(), DifferentElementsPageEnum.URL_DIFFERENT_ELEMENTS_PAGE.text);
+        Assert.assertEquals(webDriver.getCurrentUrl(), DifferentElementEnum.URL_DIFFERENT_ELEMENTS_PAGE.text);
+    }
+
+    public void clickDates() {
+        serviceHeaderSubcategoryButton.click();
+        dataButton.click();
+        Assert.assertEquals(webDriver.getCurrentUrl(), DatesEnum.DATES_URL.text);
     }
 }

@@ -8,11 +8,11 @@ import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-import static enums.DifferentElementsPageEnum.*;
+import static enums.DifferentElementEnum.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class DifferentElementPage {
+public class DifferentElement {
 
     private List<SelenideElement> checkboxes = $$(".label-checkbox");
     private SelenideElement waterCheckbox;
