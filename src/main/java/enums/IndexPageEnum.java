@@ -13,7 +13,7 @@ public enum IndexPageEnum {
     TEXT_1("To include good practicesand ideas from successfulEPAM projec"),
     TEXT_2("To be flexible andcustomizable"),
     TEXT_3("To be multiplatform"),
-    TEXT_4("Already have good base(about 20 internal andsome external projects),wish to get more..."),
+    TEXT_4("Already have good base(about 20 internal andsome external projects),wish to get more…"),
     TEXT_HEADER("EPAM FRAMEWORK WISHES…"),
     TEXT_CONTENT("LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING " +
             "ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, " +
