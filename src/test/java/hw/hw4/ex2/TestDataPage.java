@@ -51,10 +51,10 @@ public class TestDataPage extends TestBase {
         dates.checkDragAndDrop(0, 100);
         //Using drag-and-drop set Range sliders. left sliders - the most left position, right slider -
         // the most left position.	left - 0, right - 0 MIN-left range is set
-        dates.checkDragAndDrop(0, null);
+        dates.checkDragAndDrop(0, 0);
         //Using drag-and-drop set Range sliders. left sliders - the most right position,
-        // right slider - the most right position.	 left - 0, right - 0	MIN-right range is set
-        dates.checkDragAndDrop(null, 0);
+        // right slider - the most right position.	 left - 100, right - 100	MIN-right range is set
+        dates.checkDragAndDrop(100, 100);
         //Using drag-and-drop set Range sliders.	left - 30, right - 70	Range is set. Check sliders values.
         dates.checkDragAndDrop(30, 70);
     }

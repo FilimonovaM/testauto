@@ -2,29 +2,34 @@ package hw.hw4.pageObjects;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 import static enums.DifferentElementEnum.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class DifferentElement {
-
-    private List<SelenideElement> checkboxes = $$(".label-checkbox");
+    @FindBy(css = ".label-checkbox")
+    private List<SelenideElement> checkboxes;
+    @FindBy(css = ".label-radio")
+    private List<SelenideElement> radios;
+    @FindBy(css = "select.uui-form-element")
+    private SelenideElement dropdown;
+    @FindBy(css = ".main-content .uui-button")
+    private List<SelenideElement> buttons;
+    @FindBy(css = "._mCS_1")
+    private SelenideElement leftSection;
+    @FindBy(css = "ul.panel-body-list.logs li")
+    private List<SelenideElement> logs;
+    @FindBy(css = "._mCS_2")
+    private SelenideElement rightSection;
+    private StringBuffer stringBuffer;
     private SelenideElement waterCheckbox;
     private SelenideElement windCheckbox;
     private SelenideElement selen;
-    private List<SelenideElement> radios = $$(".label-radio");
-    private SelenideElement dropdown = $("select.uui-form-element");
-    private List<SelenideElement> buttons = $$(".main-content .uui-button");
-    private SelenideElement leftSection = $("._mCS_1");
-    private List<SelenideElement> logs = $$("ul.panel-body-list.logs li");
-    private SelenideElement rightSection = $("._mCS_2");
-    private StringBuffer stringBuffer;
 
     public SelenideElement getWaterCheckbox() {
         checkboxes.forEach(checkbox -> {

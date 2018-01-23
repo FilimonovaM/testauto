@@ -6,34 +6,48 @@ import com.codeborne.selenide.SelenideElement;
 import enums.DatesEnum;
 import enums.DifferentElementEnum;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 import static enums.IndexPageEnum.*;
 import static org.testng.Assert.assertEquals;
 
 public class IndexPage {
     static private WebDriver webDriver;
     private List<String> serviceList;
-    private SelenideElement loginFromButton = $(".uui-profile-menu .dropdown-toggle");
-    private SelenideElement loginInput = $("#Login");
-    private SelenideElement passwordInput = $("#Password");
-    private SelenideElement submitButton = $(".btn-login");
-    private SelenideElement userName = $(".profile-photo>span");
-    private List<SelenideElement> images = $$(".benefit-icon");
-    private List<SelenideElement> texts = $$(".benefit-txt");
-    private SelenideElement headline = $(".main-title.text-center");
-    private SelenideElement textBelowHeadline = $(".main-txt.text-center");
-    private SelenideElement serviceLeftSubcategoryButton = $(".sub-menu>a");
-    private List<SelenideElement> serviceLeftMenuCategories = $$(".sub-menu a");
-    private SelenideElement serviceHeaderSubcategoryButton = $(".dropdown-toggle");
-    private List<SelenideElement> serviceHeaderMenuCategories = $$("li.dropdown.open a");
-    private SelenideElement differentElementsButton = $("[href='page8.htm']");
-    private SelenideElement dataButton = $("[href='page4.htm']");
+    @FindBy(css = ".uui-profile-menu .dropdown-toggle")
+    private SelenideElement loginFromButton;
+    @FindBy(css = "#Login")
+    private SelenideElement loginInput;
+    @FindBy(css = "#Password")
+    private SelenideElement passwordInput;
+    @FindBy(css = ".btn-login")
+    private SelenideElement submitButton;
+    @FindBy(css = ".profile-photo>span")
+    private SelenideElement userName;
+    @FindBy(css = ".benefit-icon")
+    private List<SelenideElement> images;
+    @FindBy(css = ".benefit-txt")
+    private List<SelenideElement> texts;
+    @FindBy(css = ".main-title.text-center")
+    private SelenideElement headline;
+    @FindBy(css = ".main-txt.text-center")
+    private SelenideElement textBelowHeadline;
+    @FindBy(css = ".sub-menu>a")
+    private SelenideElement serviceLeftSubcategoryButton;
+    @FindBy(css = ".sub-menu a")
+    private List<SelenideElement> serviceLeftMenuCategories;
+    @FindBy(css = ".dropdown-toggle")
+    private SelenideElement serviceHeaderSubcategoryButton;
+    @FindBy(css = "li.dropdown.open a")
+    private List<SelenideElement> serviceHeaderMenuCategories;
+    @FindBy(css = "[href='page8.htm']")
+    private SelenideElement differentElementsButton;
+    @FindBy(css = "[href='page4.htm']")
+    private SelenideElement dataButton;
 
     public void setDriver(WebDriver webDriver) {
         this.webDriver = webDriver;
