@@ -50,10 +50,6 @@ public class IndexPage {
     @FindBy(css = "[href='page4.htm']")
     private SelenideElement dataButton;
 
-//    public void setDriver(WebDriver webDriver) {
-//        this.webDriver = webDriver;
-//    }
-
     @Step
     public void openURL(String url) {
         Selenide.open(url);
@@ -65,7 +61,7 @@ public class IndexPage {
     }
 
     @Step
-    synchronized public void login(String name, String password) {
+    public void login(String name, String password) {
         loginFromButton.click();
         loginInput.sendKeys(name);
         passwordInput.sendKeys(password);
@@ -73,19 +69,19 @@ public class IndexPage {
     }
 
     @Step
-    synchronized public void checkUser() {
+    public void checkUser() {
         userName.should(Condition.visible);
         userName.should(Condition.text(USER_NAME.text));
     }
 
     @Step
-    synchronized public void checkImages() {
+    public void checkImages() {
         assertEquals(images.size(), 4);
         images.forEach(list -> list.should(Condition.visible));
     }
 
     @Step
-    synchronized public void checkTextsUnderImages() {
+    public void checkTextsUnderImages() {
         texts.forEach((list -> list.should(Condition.visible)));
         assertEquals(texts.size(), 4);
         for (int i = 0; i < texts.size(); i++) {
@@ -94,7 +90,7 @@ public class IndexPage {
     }
 
     @Step
-    synchronized public void checkCentralTexts() {
+    public void checkCentralTexts() {
         headline.should(Condition.text(TEXT_HEADER.text));
         headline.should(Condition.visible);
         textBelowHeadline.should(Condition.text(TEXT_CONTENT.text));
@@ -102,14 +98,14 @@ public class IndexPage {
     }
 
     @Step
-    synchronized public void checkIndexPageCentralContent() {
+    public void checkIndexPageCentralContent() {
         checkImages();
         checkTextsUnderImages();
         checkCentralTexts();
     }
 
     @Step
-    synchronized public void checkLeftServiceSubmenuCategories() {
+    public void checkLeftServiceSubmenuCategories() {
         serviceLeftSubcategoryButton.should(Condition.visible);
         serviceLeftSubcategoryButton.click();
         serviceList = new ArrayList<>();
@@ -122,7 +118,7 @@ public class IndexPage {
     }
 
     @Step
-    synchronized public void checkHeaderServiceSubmenuCategories() {
+    public void checkHeaderServiceSubmenuCategories() {
         serviceHeaderSubcategoryButton.should(Condition.visible);
         serviceHeaderSubcategoryButton.click();
         serviceList = new ArrayList<>();
@@ -134,13 +130,13 @@ public class IndexPage {
     }
 
     @Step
-    synchronized public void clickDifferentElement(WebDriver webDriver) {
+    public void clickDifferentElement(WebDriver webDriver) {
         differentElementsButton.click();
         Assert.assertEquals(webDriver.getCurrentUrl(), DifferentElementEnum.URL_DIFFERENT_ELEMENTS_PAGE.text);
     }
 
     @Step
-    synchronized public void clickDates(WebDriver webDriver) {
+    public void clickDates(WebDriver webDriver) {
         serviceHeaderSubcategoryButton.click();
         dataButton.click();
         Assert.assertEquals(webDriver.getCurrentUrl(), DatesEnum.DATES_URL.text);
