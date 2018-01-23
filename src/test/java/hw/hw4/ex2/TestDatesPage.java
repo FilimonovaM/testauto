@@ -5,14 +5,21 @@ import enums.IndexPageEnum;
 import hw.hw4.base.TestBase;
 import hw.hw4.pageObjects.Dates;
 import hw.hw4.pageObjects.IndexPage;
+import listeners.AllureAttachmentListener;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Stories;
 
 import static com.codeborne.selenide.Selenide.close;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class TestDataPage extends TestBase {
+@Listeners(AllureAttachmentListener.class)
+@Features({"Selenide Test Suite"})
+@Stories({"\"Dates\" tests"})
+public class TestDatesPage extends TestBase {
     private IndexPage indexPage;
     private Dates dates;
 
@@ -20,7 +27,6 @@ public class TestDataPage extends TestBase {
     public void setPage() {
         indexPage = Selenide.page(IndexPage.class);
         dates = Selenide.page(Dates.class);
-        indexPage.setDriver(getWebDriver());
     }
 
     @AfterMethod(alwaysRun = true)
@@ -43,7 +49,7 @@ public class TestDataPage extends TestBase {
         indexPage.checkUser();
 
         //Open Service -> Dates
-        indexPage.clickDates();
+        indexPage.clickDates(getWebDriver());
 
         //Using drag-and-drop set Range sliders. left sliders - the most left position,
         // right slider - the most rigth position	left - 0, right - 100

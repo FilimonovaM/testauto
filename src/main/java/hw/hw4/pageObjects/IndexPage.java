@@ -8,6 +8,7 @@ import enums.DifferentElementEnum;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ import static enums.IndexPageEnum.*;
 import static org.testng.Assert.assertEquals;
 
 public class IndexPage {
-    static private WebDriver webDriver;
+//    static private WebDriver webDriver;
     private List<String> serviceList;
     @FindBy(css = ".uui-profile-menu .dropdown-toggle")
     private SelenideElement loginFromButton;
@@ -49,36 +50,42 @@ public class IndexPage {
     @FindBy(css = "[href='page4.htm']")
     private SelenideElement dataButton;
 
-    public void setDriver(WebDriver webDriver) {
-        this.webDriver = webDriver;
-    }
+//    public void setDriver(WebDriver webDriver) {
+//        this.webDriver = webDriver;
+//    }
 
+    @Step
     public void openURL(String url) {
         Selenide.open(url);
     }
 
-    public void checkTitle() {
+    @Step
+    public void checkTitle(WebDriver webDriver) {
         assertEquals(webDriver.getTitle(), "Index Page");
     }
 
-    public void login(String name, String password) {
+    @Step
+    synchronized public void login(String name, String password) {
         loginFromButton.click();
         loginInput.sendKeys(name);
         passwordInput.sendKeys(password);
         submitButton.click();
     }
 
-    public void checkUser() {
+    @Step
+    synchronized public void checkUser() {
         userName.should(Condition.visible);
         userName.should(Condition.text(USER_NAME.text));
     }
 
-    public void checkImages() {
+    @Step
+    synchronized public void checkImages() {
         assertEquals(images.size(), 4);
         images.forEach(list -> list.should(Condition.visible));
     }
 
-    public void checkTextsUnderImages() {
+    @Step
+    synchronized public void checkTextsUnderImages() {
         texts.forEach((list -> list.should(Condition.visible)));
         assertEquals(texts.size(), 4);
         for (int i = 0; i < texts.size(); i++) {
@@ -86,20 +93,23 @@ public class IndexPage {
         }
     }
 
-    public void checkCentralTexts() {
+    @Step
+    synchronized public void checkCentralTexts() {
         headline.should(Condition.text(TEXT_HEADER.text));
         headline.should(Condition.visible);
         textBelowHeadline.should(Condition.text(TEXT_CONTENT.text));
         textBelowHeadline.should(Condition.visible);
     }
 
-    public void checkIndexPageCentralContent() {
+    @Step
+    synchronized public void checkIndexPageCentralContent() {
         checkImages();
         checkTextsUnderImages();
         checkCentralTexts();
     }
 
-    public void checkLeftServiceSubmenuCategories() {
+    @Step
+    synchronized public void checkLeftServiceSubmenuCategories() {
         serviceLeftSubcategoryButton.should(Condition.visible);
         serviceLeftSubcategoryButton.click();
         serviceList = new ArrayList<>();
@@ -111,7 +121,8 @@ public class IndexPage {
 
     }
 
-    public void checkHeaderServiceSubmenuCategories() {
+    @Step
+    synchronized public void checkHeaderServiceSubmenuCategories() {
         serviceHeaderSubcategoryButton.should(Condition.visible);
         serviceHeaderSubcategoryButton.click();
         serviceList = new ArrayList<>();
@@ -122,12 +133,14 @@ public class IndexPage {
         Assert.assertTrue(serviceList.containsAll(getExpectedServiceMenuCategories()));
     }
 
-    public void clickDifferentElement() {
+    @Step
+    synchronized public void clickDifferentElement(WebDriver webDriver) {
         differentElementsButton.click();
         Assert.assertEquals(webDriver.getCurrentUrl(), DifferentElementEnum.URL_DIFFERENT_ELEMENTS_PAGE.text);
     }
 
-    public void clickDates() {
+    @Step
+    synchronized public void clickDates(WebDriver webDriver) {
         serviceHeaderSubcategoryButton.click();
         dataButton.click();
         Assert.assertEquals(webDriver.getCurrentUrl(), DatesEnum.DATES_URL.text);

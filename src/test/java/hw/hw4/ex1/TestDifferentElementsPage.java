@@ -5,14 +5,21 @@ import enums.DifferentElementEnum;
 import hw.hw4.base.TestBase;
 import hw.hw4.pageObjects.DifferentElement;
 import hw.hw4.pageObjects.IndexPage;
+import listeners.AllureAttachmentListener;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Stories;
 
 import static com.codeborne.selenide.Selenide.close;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static enums.IndexPageEnum.*;
 
+@Listeners(AllureAttachmentListener.class)
+@Features({"Selenide Test Suite"})
+@Stories({"\"Different elements page\" tests"})
 // 1   Create a new test in a new Java class, specify test name accordingly checking functionality
 public class TestDifferentElementsPage extends TestBase {
     private IndexPage indexPage;
@@ -22,7 +29,6 @@ public class TestDifferentElementsPage extends TestBase {
     public void setPage() {
         indexPage = Selenide.page(IndexPage.class);
         differentElement = Selenide.page(DifferentElement.class);
-        indexPage.setDriver(getWebDriver());
     }
 
     @AfterMethod(alwaysRun = true)
@@ -54,7 +60,7 @@ public class TestDifferentElementsPage extends TestBase {
         indexPage.checkHeaderServiceSubmenuCategories();
 
         //8 Open through the header menu Service -> Different Elements Page
-        indexPage.clickDifferentElement();
+        indexPage.clickDifferentElement(getWebDriver());
 
         //Check interface on Service page, it contains all needed elements.
         // 4 - checkboxes, 4 radios, dropdown, 2 - buttons, left section, right section.

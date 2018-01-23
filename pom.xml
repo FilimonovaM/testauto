@@ -22,7 +22,7 @@
 
                     <configuration>
                         <suiteXmlFiles>
-                            <suiteXmlFile>src\test\resources\testngSelenideParalell.xml</suiteXmlFile>
+                            <suiteXmlFile>src\test\resources\hw5.xml</suiteXmlFile>
                         </suiteXmlFiles>
 
                         <argLine>

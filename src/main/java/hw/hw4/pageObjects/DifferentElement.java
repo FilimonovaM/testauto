@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.List;
 
@@ -31,6 +32,7 @@ public class DifferentElement {
     private SelenideElement windCheckbox;
     private SelenideElement selen;
 
+    @Step
     public SelenideElement getWaterCheckbox() {
         checkboxes.forEach(checkbox -> {
             if (checkbox.text().equalsIgnoreCase(WATER.text)) {
@@ -40,6 +42,7 @@ public class DifferentElement {
         return waterCheckbox;
     }
 
+    @Step
     public SelenideElement getWindCheckbox() {
         checkboxes.forEach(checkbox -> {
             if (checkbox.text().equalsIgnoreCase(WIND.text)) {
@@ -49,6 +52,7 @@ public class DifferentElement {
         return windCheckbox;
     }
 
+    @Step
     public void checkElements() {
         assertEquals(checkboxes.size(), 4);
         checkboxes.forEach(checkbox -> checkbox.should(Condition.visible));
@@ -65,6 +69,7 @@ public class DifferentElement {
 
     }
 
+    @Step
     public void checkSelectionOfElements() {
         getWaterCheckbox().click();
         getWaterCheckbox().find(INPUT.text).should(Condition.checked);
@@ -72,6 +77,7 @@ public class DifferentElement {
         getWindCheckbox().find(INPUT.text).should(Condition.checked);
     }
 
+    @Step
     public void checkSelectionOfRadio() {
         radios.forEach(radio -> {
             if (radio.getText().equalsIgnoreCase(SELEN.text)) {
@@ -82,6 +88,7 @@ public class DifferentElement {
         selen.find(INPUT.text).should(Condition.checked);
     }
 
+    @Step
     public void checkColorSelection() {
         dropdown.click();
         dropdown.selectOption(YELLOW.text);
@@ -96,6 +103,7 @@ public class DifferentElement {
         Assert.assertEquals(stringBuffer.toString(), log);
     }
 
+    @Step
     public void checkUnselection() {
         getWaterCheckbox().click();
         getWaterCheckbox().find(INPUT.text).shouldNot(Condition.checked);

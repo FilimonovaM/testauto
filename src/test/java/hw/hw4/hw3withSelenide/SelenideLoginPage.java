@@ -17,7 +17,6 @@ public class SelenideLoginPage extends TestBase {
     @BeforeMethod
     public void setPage() {
         indexPage = Selenide.page(IndexPage.class);
-        indexPage.setDriver(getWebDriver());
     }
 
     //10 Close Browser
@@ -34,7 +33,7 @@ public class SelenideLoginPage extends TestBase {
         indexPage.openURL(CURRENT_URL.text);
 
         //3 Assert Browser title
-        indexPage.checkTitle();
+        indexPage.checkTitle(getWebDriver());
 
         //4 Perform login
         indexPage.login(LOGIN.text, PASSWORD.text);
@@ -43,7 +42,7 @@ public class SelenideLoginPage extends TestBase {
         indexPage.checkUser();
 
         //6 Assert Browser title
-        indexPage.checkTitle();
+        indexPage.checkTitle(getWebDriver());
 
         //7 Assert that there are 4 images on the Home Page and they are displayed
         indexPage.checkImages();
