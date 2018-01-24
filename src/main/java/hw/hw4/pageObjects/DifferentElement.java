@@ -111,7 +111,6 @@ public class DifferentElement {
                         .toLowerCase().startsWith(METALL.text)
                         || logs.get(i).getText().replaceAll("[\\d\\s:]", "")
                         .toLowerCase().startsWith(COLOR.text)) {
-
                     b = true;
                     break;
                 } else {
