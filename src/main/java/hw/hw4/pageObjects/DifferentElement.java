@@ -101,16 +101,18 @@ public class DifferentElement {
         for (String element : elements) {
             boolean b = false;
             for (int i = start; i < end; i++) {
-                if (logs.get(i).getText().replaceAll("[0-9\\n\\t\\f\\r: ]", "").toLowerCase().
+                System.out.println(logs.get(i).getText().replaceAll("[\\d\\s:]",""));
+                if (logs.get(i).getText().replaceAll("[\\d\\s:]", "").toLowerCase().
                         startsWith(element.toLowerCase()) && logs.get(i).getText()
-                        .replaceAll("[0-9\\n\\t\\f\\r: ]", "").toLowerCase()
+                        .replaceAll("[\\d\\s:]", "").toLowerCase()
                         .endsWith(String.valueOf(isExist))) {
                     b = true;
                     break;
-                } else if (logs.get(i).getText().replaceAll("[0-9\\n\\t\\f\\r: ]", "")
+                } else if (logs.get(i).getText().replaceAll("[\\d\\s:]", "")
                         .toLowerCase().startsWith(METALL.text)
-                        || logs.get(i).getText().replaceAll("[0-9\\n\\t\\f\\r: ]", "")
+                        || logs.get(i).getText().replaceAll("[\\d\\s:]", "")
                         .toLowerCase().startsWith(COLOR.text)) {
+
                     b = true;
                     break;
                 } else {
