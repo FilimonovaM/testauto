@@ -14,7 +14,6 @@ import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 
 import static com.codeborne.selenide.Selenide.close;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static enums.IndexPageEnum.*;
 
 @Listeners(AllureAttachmentListener.class)
@@ -60,7 +59,7 @@ public class TestDifferentElementsPage extends TestBase {
         indexPage.checkHeaderServiceSubmenuCategories();
 
         //8 Open through the header menu Service -> Different Elements Page
-        indexPage.clickDifferentElement(getWebDriver());
+        indexPage.clickDifferentElement();
 
         //Check interface on Service page, it contains all needed elements.
         // 4 - checkboxes, 4 radios, dropdown, 2 - buttons, left section, right section.

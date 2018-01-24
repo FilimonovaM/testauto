@@ -14,7 +14,6 @@ import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 
 import static com.codeborne.selenide.Selenide.close;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 @Listeners(AllureAttachmentListener.class)
 @Features({"Selenide Test Suite"})
@@ -49,7 +48,7 @@ public class TestDatesPage extends TestBase {
         indexPage.checkUser();
 
         //Open Service -> Dates
-        indexPage.clickDates(getWebDriver());
+        indexPage.clickDates();
 
         //Using drag-and-drop set Range sliders. left sliders - the most left position,
         // right slider - the most rigth position	left - 0, right - 100

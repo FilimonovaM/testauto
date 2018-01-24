@@ -8,7 +8,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.close;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static enums.IndexPageEnum.*;
 
 public class SelenideLoginPage extends TestBase {
@@ -33,7 +32,7 @@ public class SelenideLoginPage extends TestBase {
         indexPage.openURL(CURRENT_URL.text);
 
         //3 Assert Browser title
-        indexPage.checkTitle(getWebDriver());
+        indexPage.checkTitle();
 
         //4 Perform login
         indexPage.login(LOGIN.text, PASSWORD.text);
@@ -42,7 +41,7 @@ public class SelenideLoginPage extends TestBase {
         indexPage.checkUser();
 
         //6 Assert Browser title
-        indexPage.checkTitle(getWebDriver());
+        indexPage.checkTitle();
 
         //7 Assert that there are 4 images on the Home Page and they are displayed
         indexPage.checkImages();

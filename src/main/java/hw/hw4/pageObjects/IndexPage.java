@@ -3,9 +3,9 @@ package hw.hw4.pageObjects;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
 import enums.DatesEnum;
 import enums.DifferentElementEnum;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -56,8 +56,8 @@ public class IndexPage {
     }
 
     @Step
-    public void checkTitle(WebDriver webDriver) {
-        assertEquals(webDriver.getTitle(), "Index Page");
+    public void checkTitle() {
+        assertEquals(WebDriverRunner.getWebDriver().getTitle(), "Index Page");
     }
 
     @Step
@@ -130,15 +130,15 @@ public class IndexPage {
     }
 
     @Step
-    public void clickDifferentElement(WebDriver webDriver) {
+    public void clickDifferentElement() {
         differentElementsButton.click();
-        Assert.assertEquals(webDriver.getCurrentUrl(), DifferentElementEnum.URL_DIFFERENT_ELEMENTS_PAGE.text);
+        Assert.assertEquals(WebDriverRunner.getWebDriver().getCurrentUrl(), DifferentElementEnum.URL_DIFFERENT_ELEMENTS_PAGE.text);
     }
 
     @Step
-    public void clickDates(WebDriver webDriver) {
+    public void clickDates() {
         serviceHeaderSubcategoryButton.click();
         dataButton.click();
-        Assert.assertEquals(webDriver.getCurrentUrl(), DatesEnum.DATES_URL.text);
+        Assert.assertEquals(WebDriverRunner.getWebDriver().getCurrentUrl(), DatesEnum.DATES_URL.text);
     }
 }
