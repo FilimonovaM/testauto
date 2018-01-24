@@ -37,6 +37,7 @@ public class TestDatesPage extends TestBase {
     // Test has a name accordingly checking functionality
     @Test
     public void checkPageFunctionality() {
+
         //2 Open test site by URL	https://jdi-framework.github.io/tests
         indexPage.openURL(IndexPageEnum.CURRENT_URL.text);
 
@@ -54,12 +55,15 @@ public class TestDatesPage extends TestBase {
         // right slider - the most rigth position	left - 0, right - 100
         // Check sliders values.	Assertion for sliders values must be implemented by 1 unified method
         dates.checkDragAndDrop(0, 100);
+
         //Using drag-and-drop set Range sliders. left sliders - the most left position, right slider -
         // the most left position.	left - 0, right - 0
         dates.checkDragAndDrop(0, 0);
+
         //Using drag-and-drop set Range sliders. left sliders - the most right position,
         // right slider - the most right position.	 left - 100, right - 100
         dates.checkDragAndDrop(100, 100);
+
         //Using drag-and-drop set Range sliders.	left - 30, right - 70
         dates.checkDragAndDrop(30, 70);
     }

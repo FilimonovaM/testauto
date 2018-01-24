@@ -7,7 +7,6 @@ import com.codeborne.selenide.WebDriverRunner;
 import enums.DatesEnum;
 import enums.DifferentElementEnum;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.ArrayList;
@@ -15,40 +14,55 @@ import java.util.List;
 
 import static enums.IndexPageEnum.*;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class IndexPage {
-//    static private WebDriver webDriver;
-    private List<String> serviceList;
+
     @FindBy(css = ".uui-profile-menu .dropdown-toggle")
     private SelenideElement loginFromButton;
+
     @FindBy(css = "#Login")
     private SelenideElement loginInput;
+
     @FindBy(css = "#Password")
     private SelenideElement passwordInput;
+
     @FindBy(css = ".btn-login")
     private SelenideElement submitButton;
+
     @FindBy(css = ".profile-photo>span")
     private SelenideElement userName;
+
     @FindBy(css = ".benefit-icon")
     private List<SelenideElement> images;
+
     @FindBy(css = ".benefit-txt")
     private List<SelenideElement> texts;
+
     @FindBy(css = ".main-title.text-center")
     private SelenideElement headline;
+
     @FindBy(css = ".main-txt.text-center")
     private SelenideElement textBelowHeadline;
+
     @FindBy(css = ".sub-menu>a")
     private SelenideElement serviceLeftSubcategoryButton;
+
     @FindBy(css = ".sub-menu a")
     private List<SelenideElement> serviceLeftMenuCategories;
+
     @FindBy(css = ".dropdown-toggle")
     private SelenideElement serviceHeaderSubcategoryButton;
+
     @FindBy(css = "li.dropdown.open a")
     private List<SelenideElement> serviceHeaderMenuCategories;
+
     @FindBy(css = "[href='page8.htm']")
     private SelenideElement differentElementsButton;
+
     @FindBy(css = "[href='page4.htm']")
     private SelenideElement dataButton;
+    private List<String> serviceList;
 
     @Step
     public void openURL(String url) {
@@ -93,6 +107,7 @@ public class IndexPage {
     public void checkCentralTexts() {
         headline.should(Condition.text(TEXT_HEADER.text));
         headline.should(Condition.visible);
+
         textBelowHeadline.should(Condition.text(TEXT_CONTENT.text));
         textBelowHeadline.should(Condition.visible);
     }
@@ -113,7 +128,7 @@ public class IndexPage {
             category.should(Condition.visible);
             serviceList.add(category.getText());
         });
-        Assert.assertTrue(serviceList.containsAll(getExpectedServiceMenuCategories()));
+        assertTrue(serviceList.containsAll(getExpectedServiceMenuCategories()));
 
     }
 
@@ -126,19 +141,19 @@ public class IndexPage {
             category.should(Condition.visible);
             serviceList.add(category.getText());
         });
-        Assert.assertTrue(serviceList.containsAll(getExpectedServiceMenuCategories()));
+        assertTrue(serviceList.containsAll(getExpectedServiceMenuCategories()));
     }
 
     @Step
     public void clickDifferentElement() {
         differentElementsButton.click();
-        Assert.assertEquals(WebDriverRunner.getWebDriver().getCurrentUrl(), DifferentElementEnum.URL_DIFFERENT_ELEMENTS_PAGE.text);
+        assertEquals(WebDriverRunner.getWebDriver().getCurrentUrl(), DifferentElementEnum.URL_DIFFERENT_ELEMENTS_PAGE.text);
     }
 
     @Step
     public void clickDates() {
         serviceHeaderSubcategoryButton.click();
         dataButton.click();
-        Assert.assertEquals(WebDriverRunner.getWebDriver().getCurrentUrl(), DatesEnum.DATES_URL.text);
+        assertEquals(WebDriverRunner.getWebDriver().getCurrentUrl(), DatesEnum.DATES_URL.text);
     }
 }

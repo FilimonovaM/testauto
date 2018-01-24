@@ -1,7 +1,6 @@
 package hw.hw4.ex1;
 
 import com.codeborne.selenide.Selenide;
-import enums.DifferentElementEnum;
 import hw.hw4.base.TestBase;
 import hw.hw4.pageObjects.DifferentElement;
 import hw.hw4.pageObjects.IndexPage;
@@ -15,6 +14,7 @@ import ru.yandex.qatools.allure.annotations.Stories;
 
 import static com.codeborne.selenide.Selenide.close;
 import static enums.IndexPageEnum.*;
+import static enums.DifferentElementEnum.*;
 
 @Listeners(AllureAttachmentListener.class)
 @Features({"Selenide Test Suite"})
@@ -66,7 +66,7 @@ public class TestDifferentElementsPage extends TestBase {
         differentElement.checkElements();
 
         //9 Select and assert checkboxes	Water, Wind	Elements are checked
-        differentElement.checkSelectionOfElements();
+        differentElement.checkSelectionOfElements(WATER, WIND);
 
         //10 Select radio	Selen	Element is checked
         differentElement.checkSelectionOfRadio();
@@ -75,12 +75,12 @@ public class TestDifferentElementsPage extends TestBase {
         differentElement.checkColorSelection();
 
         //12 Check in logs section selected values and status (true|false)	Water, Wind, Selen, Yellow	Rows exists
-        differentElement.checkLogs(0, 4, DifferentElementEnum.LOG_1.text);
+        differentElement.checkLogs(0, 4, true, WATER.text, WIND.text, SELEN.text, YELLOW.text);
 
         //13 Unselect and assert checkboxes	Water, Wind	Elements are unchecked
-        differentElement.checkUnselection();
+        differentElement.checkUnselection(WATER, WIND);
 
         //Check in logs section unselected values and status (true|false)	Water, Wind	Rows exists
-        differentElement.checkLogs(4, 6, DifferentElementEnum.LOG_2.text);
+        differentElement.checkLogs(4, 6, true, "Water", "Wind");
     }
 }

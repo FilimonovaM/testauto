@@ -98,6 +98,7 @@ public class IndexPage {
     public void checkPageContent() {
         assertEquals(getHeadline().getText(), TEXT_HEADER.text);
         assertTrue(getHeadline().isDisplayed());
+
         assertEquals(getTextBelowHeadline().getText(),
                 TEXT_CONTENT.text);
         assertTrue(getTextBelowHeadline().isDisplayed());
