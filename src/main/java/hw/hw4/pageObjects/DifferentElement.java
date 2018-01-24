@@ -101,7 +101,6 @@ public class DifferentElement {
         for (String element : elements) {
             boolean b = false;
             for (int i = start; i < end; i++) {
-                System.out.println(logs.get(i).getText().replaceAll("[\\d\\s:]",""));
                 if (logs.get(i).getText().replaceAll("[\\d\\s:]", "").toLowerCase().
                         startsWith(element.toLowerCase()) && logs.get(i).getText()
                         .replaceAll("[\\d\\s:]", "").toLowerCase()
