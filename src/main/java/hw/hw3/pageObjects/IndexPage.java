@@ -11,7 +11,6 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class IndexPage {
-    private WebDriver driver;
 
     @FindBy(css = ".uui-profile-menu .dropdown-toggle")
     private WebElement loginFromButton;
@@ -47,60 +46,39 @@ public class IndexPage {
         submitButton.click();
     }
 
-    public WebElement getUserName() {
-        return userName;
-    }
-
-    public List<WebElement> getImages() {
-        return images;
-    }
-
-    public List<WebElement> getTexts() {
-        return texts;
-    }
-
-    public WebElement getHeadline() {
-        return headline;
-    }
-
-    public WebElement getTextBelowHeadline() {
-        return textBelowHeadline;
-    }
-
     public void openURL(String url, WebDriver driver) {
         driver.navigate().to(url);
-        this.driver = driver;
     }
 
-    public void checkTitle() {
+    public void checkTitle(WebDriver driver) {
         assertEquals(driver.getTitle(), TITLE.text);
     }
 
     public void checkUser() {
-        assertTrue(getUserName().isDisplayed());
-        assertTrue(getUserName().getText().equalsIgnoreCase(USER_NAME.text));
+        assertTrue(userName.isDisplayed());
+        assertTrue(userName.getText().equalsIgnoreCase(USER_NAME.text));
     }
 
     public void checkImages() {
-        assertEquals(getImages().size(), 4);
-        getImages().forEach(list -> assertTrue(list.isDisplayed()));
+        assertEquals(images.size(), 4);
+        images.forEach(list -> assertTrue(list.isDisplayed()));
     }
 
     public void checkTextsUnderImages() {
-        getTexts().forEach((list -> assertTrue(list.isDisplayed())));
-        assertEquals(getTexts().size(), 4);
-        for (int i = 0; i < getTexts().size(); i++) {
-            assertEquals(getTexts().get(i).getText().replaceAll("\n", ""),
+        texts.forEach((list -> assertTrue(list.isDisplayed())));
+        assertEquals(texts.size(), 4);
+        for (int i = 0; i < texts.size(); i++) {
+            assertEquals(texts.get(i).getText().replaceAll("\n", ""),
                     getExpectedText().get(i));
         }
     }
 
     public void checkPageContent() {
-        assertEquals(getHeadline().getText(), TEXT_HEADER.text);
-        assertTrue(getHeadline().isDisplayed());
+        assertEquals(headline.getText(), TEXT_HEADER.text);
+        assertTrue(headline.isDisplayed());
 
-        assertEquals(getTextBelowHeadline().getText(),
+        assertEquals(textBelowHeadline.getText(),
                 TEXT_CONTENT.text);
-        assertTrue(getTextBelowHeadline().isDisplayed());
+        assertTrue(headline.isDisplayed());
     }
 }

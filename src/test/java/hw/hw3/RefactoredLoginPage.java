@@ -36,7 +36,7 @@ public class RefactoredLoginPage {
         indexPage.openURL(CURRENT_URL.text, driver);
 
         //3 Assert Browser title
-        indexPage.checkTitle();
+        indexPage.checkTitle(driver);
 
         //4 Perform login
         indexPage.login(LOGIN.text, PASSWORD.text);
@@ -45,7 +45,7 @@ public class RefactoredLoginPage {
         indexPage.checkUser();
 
         //6 Assert Browser title
-        indexPage.checkTitle();
+        indexPage.checkTitle(driver);
 
         //7 Assert that there are 4 images on the Home Page and they are displayed
 

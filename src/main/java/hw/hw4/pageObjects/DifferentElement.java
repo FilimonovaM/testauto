@@ -98,26 +98,25 @@ public class DifferentElement {
     }
 
     public void checkLogs(int start, int end, boolean isExist, String... elements) {
+        StringBuffer actualElement= new StringBuffer();
         for (String element : elements) {
-            boolean b = false;
+            actualElement.setLength(0);
             for (int i = start; i < end; i++) {
                 if (logs.get(i).getText().replaceAll("[\\d\\s\\W]", "").toLowerCase().
                         startsWith(element.toLowerCase()) && logs.get(i).getText()
                         .replaceAll("[\\d\\s\\W]", "").toLowerCase()
                         .endsWith(String.valueOf(isExist))) {
-                    b = true;
+                    actualElement.append(element);
                     break;
                 } else if (logs.get(i).getText().replaceAll("[\\d\\s\\W]", "")
                         .toLowerCase().startsWith(METALL.text)
                         || logs.get(i).getText().replaceAll("[\\d\\s\\W]", "")
                         .toLowerCase().startsWith(COLOR.text)) {
-                    b = true;
+                    actualElement.append(element);
                     break;
-                } else {
-                    b = false;
                 }
             }
-            assertTrue(b);
+            assertEquals(element, actualElement.toString());
         }
     }
 
