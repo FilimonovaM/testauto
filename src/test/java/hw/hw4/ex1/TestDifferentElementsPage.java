@@ -81,6 +81,6 @@ public class TestDifferentElementsPage extends TestBase {
         differentElement.checkUnselection(WATER, WIND);
 
         //Check in logs section unselected values and status (true|false)	Water, Wind	Rows exists
-        differentElement.checkLogs(4, 6, true, "Water", "Wind");
+        differentElement.checkLogs(4, 6, true, WATER.text, WIND.text);
     }
 }
