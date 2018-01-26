@@ -1,6 +1,6 @@
 package lesson3;
 
-import hw.hw3.pageObjects.IndexPage;
+import hw.hw3.page_objects.IndexPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;

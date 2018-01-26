@@ -1,8 +1,8 @@
-package hw.hw4.hw3withSelenide;
+package hw.hw4.hw3_with_selenide;
 
 import com.codeborne.selenide.Selenide;
 import hw.hw4.base.TestBase;
-import hw.hw4.pageObjects.IndexPage;
+import hw.hw4.page_objects.IndexPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

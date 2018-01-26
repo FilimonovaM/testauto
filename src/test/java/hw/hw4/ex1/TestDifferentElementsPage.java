@@ -2,8 +2,8 @@ package hw.hw4.ex1;
 
 import com.codeborne.selenide.Selenide;
 import hw.hw4.base.TestBase;
-import hw.hw4.pageObjects.DifferentElement;
-import hw.hw4.pageObjects.IndexPage;
+import hw.hw4.page_objects.DifferentElement;
+import hw.hw4.page_objects.IndexPage;
 import listeners.AllureAttachmentListener;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;

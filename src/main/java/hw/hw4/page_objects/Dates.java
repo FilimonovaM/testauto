@@ -1,4 +1,4 @@
-package hw.hw4.pageObjects;
+package hw.hw4.page_objects;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;

@@ -1,4 +1,4 @@
-package hw.hw4.pageObjects;
+package hw.hw4.page_objects;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;

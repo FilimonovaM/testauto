@@ -1,4 +1,4 @@
-package training.base.pageObjectsLess5;
+package training.base.page_objects_less5;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
